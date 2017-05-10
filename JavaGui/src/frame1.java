@@ -184,57 +184,63 @@ public class frame1 {
 		btnSend.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				calledAET = textField_2.getText();
-				ipAddress = textField_3.getText();
-				int port = Integer.parseInt(textField_4.getText());
-				DcmSnd dcmSend = new DcmSnd("DCMSND");
-				dcmSend.setCalledAET(calledAET);
-				dcmSend.setRemoteHost(ipAddress);
-				dcmSend.setRemotePort(port);
-				dcmSend.setOfferDefaultTransferSyntaxInSeparatePresentationContext(false);
-				dcmSend.setSendFileRef(false);
-				dcmSend.setStorageCommitment(false);
-				dcmSend.setPackPDV(true);
-				dcmSend.setTcpNoDelay(true);
-				File file = new File(selectedDirectory);
-				
-				dcmSend.addFile(file);
-				
-				dcmSend.configureTransferCapability();
-				try {
-					dcmSend.start();
-					} catch (Exception e1) {
-						logger.error("ERROR: Failed to start server for receiving " +
-					"Storage Commitment results:" + e1.getMessage());
-					return;
-					}
-
-					try {
-					long t1 = System.currentTimeMillis();
-					dcmSend.open();
-					long t2 = System.currentTimeMillis();
-					logger.info("Connected to " + calledAET + " in "
-					+ ((t2 - t1) / 1000F) + "s");
-
-					dcmSend.send();
-					dcmSend.close();
-					System.out.println("Released connection to " + calledAET);
-					} catch (IOException e1) {
-					logger.error("ERROR: Failed to establish association:"
-					+ e1.getMessage());
-					} catch (InterruptedException e1) {
-					logger.error("ERROR: Failed to establish association:"
-					+ e1.getMessage());
-					} catch (org.dcm4che2.net.ConfigurationException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} finally {
-					dcmSend.stop();
-					}
+				dcmsnd();
 			}
 		});
 		btnSend.setBounds(368, 227, 71, 23);
 		frame.getContentPane().add(btnSend);
 		
+	}
+	
+	
+	private void dcmsnd(){
+		calledAET = textField_2.getText();
+		ipAddress = textField_3.getText();
+		int port = Integer.parseInt(textField_4.getText());
+		DcmSnd dcmSend = new DcmSnd("DCMSND");
+		dcmSend.setCalledAET(calledAET);
+		dcmSend.setRemoteHost(ipAddress);
+		dcmSend.setRemotePort(port);
+		dcmSend.setOfferDefaultTransferSyntaxInSeparatePresentationContext(false);
+		dcmSend.setSendFileRef(false);
+		dcmSend.setStorageCommitment(false);
+		dcmSend.setPackPDV(true);
+		dcmSend.setTcpNoDelay(true);
+		File file = new File(selectedDirectory);
+		
+		dcmSend.addFile(file);
+		
+		dcmSend.configureTransferCapability();
+		try {
+			dcmSend.start();
+			} catch (Exception e1) {
+				logger.error("ERROR: Failed to start server for receiving " +
+			"Storage Commitment results:" + e1.getMessage());
+			return;
+			}
+
+			try {
+			long t1 = System.currentTimeMillis();
+			dcmSend.open();
+			long t2 = System.currentTimeMillis();
+			logger.info("Connected to " + calledAET + " in "
+			+ ((t2 - t1) / 1000F) + "s");
+
+			dcmSend.send();
+			dcmSend.close();
+			System.out.println("Released connection to " + calledAET);
+			} catch (IOException e1) {
+			logger.error("ERROR: Failed to establish association:"
+			+ e1.getMessage());
+			} catch (InterruptedException e1) {
+			logger.error("ERROR: Failed to establish association:"
+			+ e1.getMessage());
+			} catch (org.dcm4che2.net.ConfigurationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} finally {
+			dcmSend.stop();
+			}
+	
 	}
 }
