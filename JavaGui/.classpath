@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/pacs/dcm4chee/dcm4che2/dcm4che-2.0.29/dcm4che-tool/dcm4che-tool-dcmsnd/target/dcm4che-tool-dcmsnd-2.0.29.jar" sourcepath="E:/Projects/Telerad/solutions/pacs/dcm4chee/dcm4che2/dcm4che-2.0.29/dcm4che-tool/dcm4che-tool-dcmsnd/src"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dcm4che2/dcm4che-2.0.29-src/dcm4che-net/target/dcm4che-net-2.0.29.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dev/apache-log4j-1.2.17/log4j-1.2.17.jar" sourcepath="E:/Projects/Telerad/solutions/client/dev/apache-log4j-1.2.17"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dev/commons-cli-1.4/commons-cli-1.4.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dcm4che2/dcm4che-2.0.29-src/dcm4che-core/target/dcm4che-core-2.0.29.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dcm4che2/dcm4che-2.0.29-src/dcm4che-imageio/target/dcm4che-imageio-2.0.29.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dcm4che2/dcm4che-2.0.29-src/dcm4che-imageio-rle/target/dcm4che-imageio-rle-2.0.29.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dev/slf4j-1.7.25/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="E:/Projects/Telerad/solutions/client/dev/slf4j-1.7.25/slf4j-simple-1.7.25.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
